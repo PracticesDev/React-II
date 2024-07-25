@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-//import { productActions } from "..";
+import { productActions } from "..";
 
 interface Options {
   filterKey?: string;
@@ -7,16 +7,13 @@ interface Options {
 
 
 export const useProducts = ({ filterKey }: Options) => {
-  
-  const { isLoading, isError, error, data: products = [], isFetching  } = useQuery({
-      queryKey: ['products', { filterKey }],
-  }
 
-//     () => productActions.getProducts({ filterKey }),
-//     {
-//       staleTime: 1000 * 60 * 60,   
-//     }
-   );
+  const { isLoading, isError, error, data: products = [], isFetching } = useQuery({
+    queryKey: ['products', { filterKey }],
+    queryFn: () => productActions.getProducts({ filterKey }),
+    staleTime: 1000 * 60 * 60,
+
+  });
 
 
   return {
