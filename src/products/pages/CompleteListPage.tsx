@@ -1,5 +1,5 @@
-//import { ProductList, useProducts } from ".."
 
+//import { ProductList } from "../components/ProductList";
 import { useProducts } from "../hook/useProducts";
 
 
@@ -18,6 +18,6 @@ export const CompleteListPage = () => {
 
 
     </div>
-      //<ProductList products={ products }  />
   )
+  //<ProductList products={ products }  />
 }
