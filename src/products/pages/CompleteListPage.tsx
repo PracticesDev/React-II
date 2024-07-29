@@ -1,12 +1,12 @@
 
-//import { ProductList } from "../components/ProductList";
+import { ProductList } from "../components/ProductList";
 import { useProducts } from "../hook/useProducts";
 
 
 
 export const CompleteListPage = () => {
 
-  const { isLoading } = useProducts({});
+  const { isLoading, products } = useProducts({});
   
 
   return (
@@ -14,10 +14,10 @@ export const CompleteListPage = () => {
       <h1 className="text-2xl font-bold">Todos los productos</h1>
 
       { isLoading && <p>Cargando...</p> }
+      <ProductList products={ products }  />
 
 
 
     </div>
   )
-  //<ProductList products={ products }  />
 }
